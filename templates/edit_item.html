@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="ui one column stackable center aligned page grid">
+    <div class="column eight wide">
+        <h1 style="margin-top: 30px;">Edit Vinyl</h1>
+            <form class="ui small form" action="{{url_for('editItem', category_id=category_id, item_id=item.id)}}" method="POST">
+                <div class="field">
+                    <label class="label">Artist:</label>
+                    <input type="text" size="30" name="artist" placeholder="{{ item.artist }}" required>
+                </div>
+                <div class="field">
+                    <label class="label">Album:</label>
+                    <input type="text" size="30" name="album" placeholder="{{ item.album }}" required>
+                </div>
+                <div class="field">
+                    <label class="label">Year:</label>
+                    <input type="text" size="30" name="year" placeholder="{{ item.year }}" required>
+                </div>
+                <div class="field">
+                    <label class="label">Image URL:</label>
+                    <input type="text" size="30" name="image" placeholder="{{ item.image }}" required>
+                </div>
+                <div class="field">
+                    <label class="label">Description:</label>
+                    <textarea type="text" size="30" name="description" required>{{ item.description }}</textarea>
+                </div>
+                <input type="submit" value="Update">
+            </form>
+            <a href="{{url_for('categoryVinyls', category_id=category_id)}}">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

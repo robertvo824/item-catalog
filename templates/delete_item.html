@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="ui one column stackable center aligned page grid">
+    <div class="column eight wide">
+        <h1 style="margin-top: 30px; margin-bottom:25px;">Are you sure you want to delete {{ item.artist}} - {{item.album}}</h1>
+        <form action="{{url_for('deleteItem', category_id=item.category_id, item_id=item.id)}}" method="POST">
+            <input class="ui button red" type="submit" value="Delete" style="float:right;">
+        </form>
+        <a href="{{ url_for('categoryVinyls', category_id=item.category_id)}}" class="ui button orange" style="float:right;">Cancel</a>
+    </div>
+</div>
+{% endblock %}

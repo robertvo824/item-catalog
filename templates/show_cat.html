@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="ui main text container">
+    <div class="ui huge header" style="margin-top: 50px; text-align: center">
+        {{ category.name }}
+    </div>
+
+    <!-- Message Flashing -->
+    <div id="flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        {% for message in messages %}
+            <h2>{{ message }}</h2>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <p><a href = "{{url_for('newItem', category_id = category.id) }}"><i class="icon plus blue large"></i></a></p>
+    <div class="ui top attached segment">
+    <div class="ui divided items">
+        {% for item in items %}
+            <div class="item">
+                <div class="image">
+                    <img src="{{ item.image }}"/>
+                </div>
+                <div class="content">
+                    <a class="header" href="/">{{ item.artist }} - {{ item.album }}</a>
+                    <div class="meta">
+                        <span>{{ item.year }}</span>
+                    </div>
+                    <div class="description">
+                        {{ item.description[0:100] }}...
+                    </div>
+                    <div class="extra">
+                        <a href="{{url_for('showItem', category_id = item.category_id, item_id = item.id) }}" class="ui floated primary blue button">More Info<i class="right chevron icon"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+{% endblock %}

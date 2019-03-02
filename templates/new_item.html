@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="ui one column stackable center aligned page grid">
+    <div class="column eight wide">
+        <h1 style="margin-top: 30px;">Add New Vinyl</h1>
+
+        <form class="ui small form" action="{{ url_for('newItem', category_id=category_id )}}" method="POST">
+                <div class="field">
+                    <label class="label">Artist:</label>
+                    <input type="text" name="artist" size="30" required>
+                </div>
+                <div class="field">
+                    <label class="label">Album:</label>
+                    <input type="text" name="album" size="30" required>
+                </div>
+                <div class="field">
+                    <label class="label">Year:</label>
+                    <input type="text" name="year" size="30" required>
+                </div>
+                <div class="field">
+                    <label class="label">Image URL:</label>
+                    <input type="text" name="image" size="30" required>
+                </div>
+                <div class="field">
+                    <label class="label">Description</label>
+                    <textarea name="description" required></textarea>
+                </div>
+                <input class="ui button primary" id="add" type="submit" value="Add">
+        </form>
+    </div>
+</div>
+{% endblock %}
