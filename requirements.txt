@@ -11,4 +11,4 @@ requests==2.16.5
 SQLAlchemy==1.1.10
 urllib3==1.21.1
 webencodings==0.5.1
-werkzeug==0.8.3
+werkzeug==0.15.3
