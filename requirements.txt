@@ -9,6 +9,6 @@ oauth2client==4.1.0
 packaging==16.8
 requests==2.16.5
 SQLAlchemy==1.1.10
-urllib3==1.21.1
+urllib3==1.26.5
 webencodings==0.5.1
 werkzeug==0.8.3
